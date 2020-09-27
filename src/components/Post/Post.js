@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -45,17 +45,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Post = (props) => {
     const { userId, id, title, body } = props.post;
-
-    // meterial ui card
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-
     const [likeColor, setLikeColor] = useState('');
-
     const handleLike = () => {
         const color = likeColor ? '' : 'primary';
         setLikeColor(color);
@@ -75,7 +70,7 @@ const Post = (props) => {
             />
             <CardMedia
                 className={classes.media}
-                image='https://i.imgur.com/EYTYgQJ.png'
+                image='https://i.ytimg.com/vi/JPT3bFIwJYA/maxresdefault.jpg'
                 title={title}
             />
             <CardContent>

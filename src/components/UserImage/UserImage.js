@@ -2,26 +2,21 @@ import React, { useEffect, useState } from 'react';
 import PostComment from '../PostComment/PostComment';
 
 const UserImage = () => {
-
-    // random user api
-    const [user, setUser] = useState([]);
+    const [userDetails, setUseruserDetails] = useState([]);
 
     useEffect(() => {
-        const url = 'https://randomuser.me/api/'
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setUser(data.results))
-
+        fetch('https://randomuser.me/api/').then(res => res.json()).then(data => setUseruserDetails(data.results))
     }, [])
+
     return (
         <div>
             {
-                user.map(u => <PostComment
-                    fname={u.name.first}
-                    lname={u.name.last}
-                    email={u.email}
-                    phone={u.phone}
-                    image={u.picture.large}
+                userDetails.map(user => <PostComment
+                    firstName ={user.name.first}
+                    lastName = {user.name.last}
+                    email = {user.email}
+                    phone = {user.phone}
+                    image = {user.picture.large}
                 >
                 </PostComment>)
             }

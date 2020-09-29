@@ -1,14 +1,27 @@
+
+// coded by - taib islam dipu, 6 sept 2020
+
 import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Home from './Components/Home/Home';
-import NoMatch from './Components/NoMatch/NoMatch'
-import Comment from './Components/Comment/Comment';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Home from './components/Home/Home';
+import NoMatch from './components/NoMatch/NoMatch'
+import Comment from './components/Comment/Comment';
 
 function App() {
 
   return (
-    <div className="App">
+
+    <div className="bodyStyle">
+
       <Router>
         <Switch>
 

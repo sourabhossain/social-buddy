@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PostComment from '../PostComment/PostComment';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -13,9 +12,6 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     root: {
-        // maxWidth: 'auto',
-        // margin: '20px',
-
         width: '800px',
         margin: 'auto',
 
@@ -26,37 +22,21 @@ const useStyles = makeStyles({
 });
 
 const Comment = () => {
-
-
     const classes = useStyles();
-
     const { id } = useParams();
-
-    // console.log('clicked post id', id); 
-    // random user api id
     const [comments, setComments] = useState([]);
-
-    // console.log('clicked post comments', comments);
-
     const [post, setPosts] = useState({});
-
-    console.log('clicked post details', post);
-
     const { title, body } = post;
 
     useEffect(() => {
-        const cmt_url = `https://jsonplaceholder.typicode.com/comments?postId=${id}`;
-
-        fetch(cmt_url)
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${id}`)
             .then(res => res.json())
             .then(data => setComments(data))
 
     }, [])
 
     useEffect(() => {
-        const post_url = `https://jsonplaceholder.typicode.com/posts/${id}`;
-
-        fetch(post_url)
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then(res => res.json())
             .then(data => setPosts(data))
 
@@ -69,27 +49,23 @@ const Comment = () => {
         <Card className={classes.root}>
 
             <CardActionArea>
-                <CardMedia
-                    className={classes.media}
-                    image="https://blog.codemagic.io/uploads/2020/08/codemagic-blog-how-to-build-react-native-ui-app-with-material-ui.png"
-                    title="Contemplative Reptile"
-                />
+                <CardMedia className={classes.media} image="https://i.ytimg.com/vi/JPT3bFIwJYA/maxresdefault.jpg" title="Contemplative Reptile"/>
+                
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         <h1>{title}</h1>
                     </Typography>
+
                     <Typography variant="body2" color="textSecondary" component="p">
                         {body}
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quasi rerum et voluptas iusto perspiciatis dolorem incidunt totam velit ad ullam maxime ut sed, aut, exercitationem mollitia debitis numquam nemo!</p>
-                        <p>Olor sit amet, consectetur adipisicing elit. Dolorum, quasi rerum et voluptas iusto perspiciatis dolorem incidunt totam velit ad ullam maxime ut sed, aut, exercitationem mollitia debitis numquam nemo!</p>
                     </Typography>
                 </CardContent>
             </CardActionArea>
+
             <CardActions>
-                <Button size="small" color="primary" onClick={() => alert('Share feature Comming Soon !!!')}>
-                    Share
-                    </Button>
+                <Button size="small" color="primary" onClick={() => alert('Share feature Comming Soon !!!')}>Share</Button>
             </CardActions>
+            
             <h2>Post Comments</h2>
             <hr />
             {

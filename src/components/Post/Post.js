@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -9,7 +8,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
@@ -28,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -47,17 +45,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Post = (props) => {
     const { userId, id, title, body } = props.post;
-
-    // meterial ui card
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-
     const [likeColor, setLikeColor] = useState('');
-
     const handleLike = () => {
         const color = likeColor ? '' : 'primary';
         setLikeColor(color);
@@ -74,11 +67,10 @@ const Post = (props) => {
                     </IconButton>
                 }
                 title={title.toUpperCase()}
-            // subheader=""
             />
             <CardMedia
                 className={classes.media}
-                image='https://i.imgur.com/EYTYgQJ.png'
+                image='https://i.ytimg.com/vi/JPT3bFIwJYA/maxresdefault.jpg'
                 title={title}
             />
             <CardContent>

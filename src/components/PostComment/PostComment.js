@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -22,20 +21,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PostComment = (props) => {
-    // console.log('post comment', props);
     const classes = useStyles();
-
-    const { body, email, name, postId } = props.comment;
-
-    // random user image api
+    const { body, email, name } = props.comment;
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        const url = 'https://randomuser.me/api/'
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setUser(data.results))
-
+        fetch('https://randomuser.me/api/').then(res => res.json()).then(data => setUser(data.results))
     }, [])
 
     const [likeColor, setLikeColor] = useState('');
